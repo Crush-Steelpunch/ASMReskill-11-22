@@ -20,11 +20,16 @@ def read():
 
     # instantiate staff input form
     pyform = NameForm()
+
+    # Grab stuff from the POST
     if request.method == 'POST':
+        # WTForms adds the data to the forms we created, then we retrieve it and 
+        # put it into a database object
         addstaff = Staff(staff_name=pyform.Name.data, subject_id=pysubjectform.subjlist.data)
         db.session.add(addstaff)
         db.session.commit()
         #breakpoint()
+        # Send the user back to the frontpage
         return redirect(url_for('read'))
 
 
