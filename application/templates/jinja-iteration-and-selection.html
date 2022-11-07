@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <h1>This is a variable substitution</h1>
+        
+        {{ jivar1 }}
+        
+        <h1>This is a jinja2 loop</h1>
+        
+        {% for jivar2 in ["sheep","goat","cow"] %}
+        <p>{{ jivar2 }}</p>
+        {% endfor %}
+        
+        <h1>This is a jinja2 conditional</h1>
+
+        {% if 3 == 3 %}
+        <p>This will show if the two numbers in the jinja test are the same</p>
+        {% endif %}
+
+    </body>
+</html>

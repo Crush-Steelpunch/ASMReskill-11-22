@@ -10,3 +10,7 @@ def read():
     breakpoint()
     return render_template('front.html', jistaff=pystaff )
 
+@app.route('/jinja2-demo')
+def jinjathethngs():
+    pyvar1 = "This is some Data"
+    return render_template('jinja-iteration-and-selection.html', jivar1=pyvar1)
