@@ -3,6 +3,7 @@
         <h1>
             This is my Fabulous Web page
         </h1>
+<!-- List of staff will be here -->
         <table>
         {% for staffperson in jistaff %}
         <tr>
@@ -12,6 +13,16 @@
         </tr>
         {% endfor %}
         </table>
+<!-- End List -->
+<!-- Form will be here -->
+<div class='form'>
+    <form method='POST' action=''>
+        {{ jiform.hidden_tag() }}
+        {{ jiform.Name.id}} {{jiform.Name}}
+        {{ jiform.subjid.id }}  {{ jiform.subjid }}
+        {{ jiform.submit }}
+        {{ jisubjectform.subjlist}}
+<!-- End of Form -->
     </body>
 </html>
 
