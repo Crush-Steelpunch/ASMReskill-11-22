@@ -6,7 +6,7 @@ from flask import render_template
 
 @app.route('/', methods = ['GET'])
 def read():
-    pystaff = Staff.query.join(Subjects).first()
+    pystaff = Staff.query.join(Subjects).all()
     breakpoint()
     return render_template('front.html', jistaff=pystaff )
 

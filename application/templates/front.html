@@ -3,9 +3,15 @@
         <h1>
             This is my Fabulous Web page
         </h1>
-        The instructors name is {{  jistaff.staff_name }}
-        The instructors id is {{ jistaff.id }}
-        The instructors subject_id is {{ jistaff.subject_id }}
+        <table>
+        {% for staffperson in jistaff %}
+        <tr>
+        <td>The instructors name is {{  staffperson.staff_name }}</td>
+        <td>instructors id is {{ staffperson.id }}</td>
+        <td>The instructors subject_id is {{ staffperson.subject_id }}</td>
+        </tr>
+        {% endfor %}
+        </table>
     </body>
 </html>
 
