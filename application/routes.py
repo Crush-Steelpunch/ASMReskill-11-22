@@ -1,6 +1,6 @@
 from application import app, db
 from application.models import Subjects, Staff
-from flask import render_template
+from flask import render_template, redirect, url_for
 from flask import request
 from application.forms import NameForm, exampleSelectField, SubjectList
 
@@ -15,16 +15,17 @@ def read():
     # append query to choices
     for subj in pysubjects:
         pysubjectform.subjlist.choices.append(
-           subj.subject_name
+           (subj.id,subj.subject_name)
         )
 
     # instantiate staff input form
     pyform = NameForm()
     if request.method == 'POST':
-        addstaff = Staff(staff_name=pyform.Name.data, subject_id=pyform.subjid.data)
+        addstaff = Staff(staff_name=pyform.Name.data, subject_id=pysubjectform.subjlist.data)
         db.session.add(addstaff)
         db.session.commit()
         #breakpoint()
+        return redirect(url_for('read'))
 
 
 #    breakpoint()
