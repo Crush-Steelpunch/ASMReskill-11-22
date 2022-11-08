@@ -3,6 +3,7 @@ from application.models import Subjects, Staff
 from flask import render_template, redirect, url_for
 from flask import request
 from application.forms import NameForm, exampleSelectField, SubjectList
+import pdb
 
 @app.route('/', methods = ['GET','POST'])
 def read():
@@ -20,20 +21,24 @@ def read():
 
     # instantiate staff input form
     pyform = NameForm()
-
     # Grab stuff from the POST
-    if request.method == 'POST':
+    if true:
+        pass
+    if pyform.validate_on_submit():
+        if request.method == 'POST':
         # WTForms adds the data to the forms we created, then we retrieve it and 
         # put it into a database object
-        addstaff = Staff(staff_name=pyform.Name.data, subject_id=pysubjectform.subjlist.data)
-        db.session.add(addstaff)
-        db.session.commit()
+            addstaff = Staff(staff_name=pyform.Name.data, subject_id=pysubjectform.subjlist.data)
+            db.session.add(addstaff)
+            pdb.set_trace()
+            db.session.commit()
         #breakpoint()
         # Send the user back to the frontpage
-        return redirect(url_for('read'))
+            return redirect(url_for('read'))
+        return 'NO'
 
 
-#    breakpoint()
+    breakpoint()
     return render_template('front.html', jistaff=pystaff, jiform=pyform, jisubjectform=pysubjectform )
 
 @app.route('/jinja2-demo')
