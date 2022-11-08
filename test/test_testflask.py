@@ -50,5 +50,4 @@ class TestReadURL(TestBase):
         assert responsevar.status_code == 200
     def test_Fabulous(self):
         responsevar = self.client.get(url_for('read'))
-        breakpoint()
         assert "Madman" in responsevar.text 

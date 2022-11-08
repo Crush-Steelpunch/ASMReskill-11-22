@@ -3,7 +3,6 @@ from application.models import Subjects, Staff
 from flask import render_template, redirect, url_for
 from flask import request
 from application.forms import NameForm, exampleSelectField, SubjectList
-import pdb
 
 @app.route('/', methods = ['GET','POST'])
 def read():
@@ -28,7 +27,6 @@ def read():
         # put it into a database object
             addstaff = Staff(staff_name=pyform.Name.data, subject_id=pysubjectform.subjlist.data)
             db.session.add(addstaff)
-            pdb.set_trace()
             db.session.commit()
         #breakpoint()
         # Send the user back to the frontpage
