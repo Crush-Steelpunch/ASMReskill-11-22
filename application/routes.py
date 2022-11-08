@@ -22,8 +22,6 @@ def read():
     # instantiate staff input form
     pyform = NameForm()
     # Grab stuff from the POST
-    if true:
-        pass
     if pyform.validate_on_submit():
         if request.method == 'POST':
         # WTForms adds the data to the forms we created, then we retrieve it and 
@@ -38,7 +36,6 @@ def read():
         return 'NO'
 
 
-    breakpoint()
     return render_template('front.html', jistaff=pystaff, jiform=pyform, jisubjectform=pysubjectform )
 
 @app.route('/jinja2-demo')
