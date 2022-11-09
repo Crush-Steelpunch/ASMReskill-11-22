@@ -43,6 +43,7 @@ class TestPage(TestBase):
         # Send text to the text box and click submit
         self.driver.find_element_by_xpath('//*[@id="Name"]').send_keys('Justin')
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
+        breakpoint
         # capture output of page from web browser
         webpage = self.driver
         # test that what we have added is on the webpage
@@ -51,3 +52,15 @@ class TestPage(TestBase):
     def test_case_load_page(self):
         # test the url we have in the browser matches the one in our main read function
         self.assertIn(url_for('read'), self.driver.current_url)
+
+    def test_case_add_staff(self):
+        # Send text to the text box and click submit
+        self.driver.find_element_by_xpath('//*[@id="Name"]').send_keys('Mr Tumble')
+        self.driver.find_element_by_xpath('//*[@id="subjlist"]').send_keys('F')
+
+        self.driver.find_element_by_xpath('//*[@id="submit"]').click()
+        breakpoint
+        # capture output of page from web browser
+        webpage = self.driver
+        # test that what we have added is on the webpage
+        self.assertIn('Mr Tumble</td><td>instructors id is 6</td><td>The instructors subject_id is 3</td></tr>',webpage.page_source)
