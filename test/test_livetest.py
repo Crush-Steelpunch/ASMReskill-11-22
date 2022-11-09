@@ -21,7 +21,7 @@ class TestBase(LiveServerTestCase):
         chrome_options = webdriver.chrome.options.Options()
         chrome_options.add_argument('--headless')
         self.driver = webdriver.Chrome(
-            executable_path='/snap/chromium/2168/usr/lib/chromium-browser/chromedriver'
+            executable_path='/snap/chromium/2168/usr/lib/chromium-browser/chromedriver',
             options=chrome_options
         )
         self.driver.get(f'http://localhost:5000.')
