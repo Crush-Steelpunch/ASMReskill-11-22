@@ -4,7 +4,7 @@ from flask_testing import LiveServerTestCase
 from application import app, db
 from application.models import Subjects, Staff
 from selenium import webdriver
-
+from flask import url_for
 
 class TestBase(LiveServerTestCase):
     def create_app(self):
