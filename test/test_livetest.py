@@ -11,8 +11,7 @@ class TestBase(LiveServerTestCase):
         app.config.update(
             SQLALCHEMY_DATABASE_URI = 'sqlite:///',
             DEBUG=True,
-            WTF_CSRF_ENABLED=False,
-            DEBUG=True
+            WTF_CSRF_ENABLED=False
             )
         return app
 
