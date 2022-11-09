@@ -54,10 +54,9 @@ class TestPage(TestBase):
         self.assertIn(url_for('read'), self.driver.current_url)
 
     def test_case_add_staff(self):
-        # Send text to the text box and click submit
+        # Send text to the text box, choose a list item, and click submit
         self.driver.find_element_by_xpath('//*[@id="Name"]').send_keys('Mr Tumble')
         self.driver.find_element_by_xpath('//*[@id="subjlist"]').send_keys('F')
-
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
         breakpoint
         # capture output of page from web browser
