@@ -12,10 +12,20 @@ class TestBase(LiveServerTestCase):
             SQLALCHEMY_DATABASE_URI = 'sqlite:///',
             DEBUG=True,
             WTF_CSRF_ENABLED=False
+            DEBUG=True
             )
         return app
 
     def setUp(self):
+        # Set up options for the web browser
+        chrome_options = webdriver.chrome.options.Options()
+        chrome_options.add_argument('--headless')
+        self.driver = webdriver.Chrome(
+            executable_path='/snap/chromium/2168/usr/lib/chromium-browser/chromedriver'
+            options=chrome_options
+        )
+        self.driver.get(f'http://localhost:5000.')
+        # populate an in-memory database
         db.create_all()
         for subj in ['Jankins','Pythud','Flop']:
             subjects = Subjects(subject_name=subj)
@@ -31,6 +41,9 @@ class TestBase(LiveServerTestCase):
 
 class TestPage(TestBase):
     def test_case_load_page(self):
-        self.driver = webdriver.Chrome(executable_path='/snap/bin/chromium.chromedriver')
-        self.driver.get(f'http://localhost:5000.')
+        self.driver.find_element_by_xpath('//*[@id="Name"]').send_keys('Justin')
+        self.driver.find_element_by_xpath('//*[@id="submit"]').click()
+        webpage = self.driver.text
         breakpoint()
+        assertIn('Justin',self.driver.text)
+
