@@ -42,7 +42,7 @@ class TestPage(TestBase):
     def test_case_load_page(self):
         self.driver.find_element_by_xpath('//*[@id="Name"]').send_keys('Justin')
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
-        webpage = self.driver.text
+        webpage = self.driver
         breakpoint()
-        assertIn('Justin',self.driver.text)
+        assertIn('Justin',self.driver)
 
