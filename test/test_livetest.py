@@ -44,5 +44,5 @@ class TestPage(TestBase):
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
         webpage = self.driver
         breakpoint()
-        assertIn('Justin',webpage.page_source)
+        self.assertIn('Justin',webpage.page_source)
 
