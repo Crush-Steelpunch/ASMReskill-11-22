@@ -23,7 +23,7 @@ class TestBase(LiveServerTestCase):
             executable_path='/snap/chromium/2168/usr/lib/chromium-browser/chromedriver',
             options=chrome_options
         )
-        self.driver.get(f'http://localhost:5000.')
+        self.driver.get(f'http://localhost:5000')
         # populate an in-memory database
         db.create_all()
         for subj in ['Jankins','Pythud','Flop']:
