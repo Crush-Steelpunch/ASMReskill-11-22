@@ -63,4 +63,4 @@ class TestPage(TestBase):
         # capture output of page from web browser
         webpage = self.driver
         # test that what we have added is on the webpage
-        self.assertIn('Mr Tumble</td><td>instructors id is 6</td><td>The instructors subject_id is 3</td></tr>',webpage.page_source)
+        self.assertIn(' Mr Tumble</td>\n        <td>instructors id is 5</td>\n        <td>The instructors subject_id is 3</td>',webpage.page_source)
