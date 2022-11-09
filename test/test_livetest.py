@@ -39,10 +39,15 @@ class TestBase(LiveServerTestCase):
         db.drop_all()
 
 class TestPage(TestBase):
-    def test_case_load_page(self):
+    def test_case_add_staff(self):
+        # Send text to the text box and click submit
         self.driver.find_element_by_xpath('//*[@id="Name"]').send_keys('Justin')
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
+        # capture output of page from web browser
         webpage = self.driver
-        breakpoint()
+        # test that what we have added is on the webpage
         self.assertIn('Justin',webpage.page_source)
 
+    def test_case_load_page(self):
+        # test the url we have in the browser matches the one in our main read function
+        self.assertIn(url_for('read'), self.driver.current_url)
