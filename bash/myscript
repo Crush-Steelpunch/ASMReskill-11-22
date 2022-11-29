@@ -21,20 +21,28 @@ then
 	echo "The test returned True"
 fi
 
+# read input from arguments on the cli
+# e.g myscript arg1 arg2 arg3 arg4 arg5 arg6
+
 echo $1
 echo $2
 echo $3
 echo $4
 echo $5
 
+# interactive prompt for people to type in
+
 read -p "TYPE IN NOW: " var3
 echo "you typed in: $var3"
 
+# Loop using a list inline with the for statement
 
 for var4 in seperated by space is a list in bash cat dog pug cheese
 do
 	echo $var4
 done
+
+# Loop using a list in a varable 
 
 var5="seperated by space is a list in bash cat dog pug cheese"
 
@@ -42,6 +50,8 @@ for var4 in $var5
 do
 	echo $var4
 done
+
+# using the exit status of a command in an if statement
 
 touch ~/cats
 if [ $? -eq 0 ]
