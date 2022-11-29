@@ -1,0 +1,6 @@
+#!/bin/bash 
+#run this  file with 
+# source exercise5-strechgoal
+# to make the directory change happen in the current environment
+mkdir somesubdir
+cd somesubdir
