@@ -1,0 +1,61 @@
+#!/bin/bash
+grep -v english ~/country.txt | cut -d, -f1 > ~/englishcountries.txt
+ls
+cat ~/englishcountries.txt
+
+var1=txt
+var2=10
+# file test
+if [ ~/englishcountries.txt -nt /etc/fstab ]
+then
+	echo "The test returned True"
+fi
+# string test
+if [ $var1 = txt ]
+then
+	echo "The test returned True"
+fi
+# integer test
+if [ $var2 -eq 10 ]
+then
+	echo "The test returned True"
+fi
+
+echo $1
+echo $2
+echo $3
+echo $4
+echo $5
+
+read -p "TYPE IN NOW: " var3
+echo "you typed in: $var3"
+
+
+for var4 in seperated by space is a list in bash cat dog pug cheese
+do
+	echo $var4
+done
+
+var5="seperated by space is a list in bash cat dog pug cheese"
+
+for var4 in $var5
+do
+	echo $var4
+done
+
+touch ~/cats
+if [ $? -eq 0 ]
+then
+	echo "I touched a cat"
+else
+	echo "I couldn't touch the cat"
+fi
+
+touch /etc/cats
+if [ $? -eq 0 ]
+then
+	echo "I touched a cat"
+else
+	echo "I couldn't touch the cat"
+fi
+
