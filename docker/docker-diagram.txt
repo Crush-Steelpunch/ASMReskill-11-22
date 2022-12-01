@@ -5,10 +5,10 @@ Images                                      |   Containers
              |        ghcr.io               |                                                  
              |     /|\registry.gitlab.io    |                                                  
              |      |                       |        stopped container                         
-             |      |                       |                                                  
-            \|/     |                       |        stop      start                           
-             pull   push                    |         /|\         |                            
-                                            |          |          |                           
+             |      |          -------------+- commit-                                         
+            \|/     |         /             |        stop      start                           
+             pull   push     |              |         /|\         |                            
+                            \|/             |          |          |                           
                                             |          |         \|/                          
          local machine image  ---- run -----+-----> running container                         
                                             |          |             \                        
