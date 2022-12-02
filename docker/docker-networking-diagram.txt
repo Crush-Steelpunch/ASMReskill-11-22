@@ -1,0 +1,37 @@
+Docker Networking
+                                                                                                              
+        Local Network
+             |                                                 -p 81:80
+             |     macvlan cont                                172.17.0.2
+             |     172.31.43.140    lo                         nginx2                              
+             |       ens5:1         127.0.0.1                     |                                            
+             |         |                                          |                                            
+             \------- ens5         kernel        docker0 ---------+----                           
+                   172.31.43.139               172.17.0.1         |                                           
+                       |                                          |                                           
+                       |      if dst_port=80                      |                                           
+                       |     then set dst_ip=172.17.0.3         busybox                                       
+                       |                                        172.17.0.3                                    
+                       |                                                                                      
+                       |                                                                                      
+                       |                        br-feae329235e3---------+-----------------+                   
+                host network container           172.20.0.1             |                 |
+		        443                                             |                 |
+                                                                 my-custom-nginx     leondb-cont              
+                                                                    172.20.0.3         172.20.0.3             
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+                                                                                                              
+
+
