@@ -7,6 +7,8 @@ services:  # what containers we need to run
     - target: 5500
       protocol: tcp
       published: 5500
+    environment:
+      YOUR_NAME: "Splat Punchloads"
   nginx:
     image: duopyapp-nginx:latest
     build: ./duotask-nginx-container
