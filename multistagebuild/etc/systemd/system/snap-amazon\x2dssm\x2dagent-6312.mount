@@ -1,0 +1,14 @@
+[Unit]
+Description=Mount unit for amazon-ssm-agent, revision 6312
+Before=snapd.service
+After=zfs-mount.service
+
+[Mount]
+What=/var/lib/snapd/snaps/amazon-ssm-agent_6312.snap
+Where=/snap/amazon-ssm-agent/6312
+Type=squashfs
+Options=nodev,ro,x-gdu.hide,x-gvfs-hide
+LazyUnmount=yes
+
+[Install]
+WantedBy=default.target multi-user.target

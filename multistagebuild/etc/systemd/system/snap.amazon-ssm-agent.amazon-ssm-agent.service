@@ -1,0 +1,21 @@
+[Unit]
+# Auto-generated, DO NOT EDIT
+Description=Service for snap application amazon-ssm-agent.amazon-ssm-agent
+Requires=snap-amazon\x2dssm\x2dagent-6312.mount
+Wants=network.target
+After=snap-amazon\x2dssm\x2dagent-6312.mount network.target snapd.apparmor.service
+X-Snappy=yes
+
+[Service]
+EnvironmentFile=-/etc/environment
+ExecStart=/usr/bin/snap run amazon-ssm-agent
+SyslogIdentifier=amazon-ssm-agent.amazon-ssm-agent
+Restart=always
+WorkingDirectory=/var/snap/amazon-ssm-agent/6312
+TimeoutStopSec=60
+Type=simple
+KillMode=process
+KillSignal=SIGTERM
+
+[Install]
+WantedBy=multi-user.target

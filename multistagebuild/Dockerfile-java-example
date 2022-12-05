@@ -1,0 +1,9 @@
+FROM maven AS build-stage
+WORKDIR /buildfolder
+COPY myapp .
+RUN mvn clean package
+
+FROM openjdk AS runtime
+WORKDIR /runtime
+COPY --from=build-stage /buildfolder/target/myapp-1.0.jar app.jar
+ENTRYPOINT ["/usr/bin/java", "-jar", "app.jar"]
