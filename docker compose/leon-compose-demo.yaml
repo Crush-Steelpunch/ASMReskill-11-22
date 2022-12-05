@@ -1,0 +1,7 @@
+version: "3.8"
+services:  # what containers we need to run
+  duopyapp:    # the name of the secion  
+    image: duopyapp:latest
+    ports: 
+    - target: 5500
+      protocol: tcp
