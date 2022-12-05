@@ -17,5 +17,5 @@ services:  # what containers we need to run
       published: 80
     volumes: 
       - type: bind
-        source: ./duotask-nginx-container/nginx.con
+        source: ./duotask-nginx-container/nginx.conf
         target: /etc/nginx/nginx.conf
