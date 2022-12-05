@@ -1,3 +1,3 @@
 FROM nginx
-WORKDIR /etc
+WORKDIR /etc/nginx
 COPY nginx.conf .
