@@ -19,3 +19,5 @@ services:  # what containers we need to run
       - type: bind
         source: ./duotask-nginx-container/nginx.conf
         target: /etc/nginx/nginx.conf
+    depends_on:
+      - "flask-app"
