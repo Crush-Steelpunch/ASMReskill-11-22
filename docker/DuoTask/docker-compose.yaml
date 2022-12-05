@@ -1,0 +1,15 @@
+version: "3.8"
+services:  # what containers we need to run
+  flask-app:    # the name of the secion  
+    image: duopyapp:latest
+    build: ./duotask-pyapp
+    ports: 
+    - target: 5500
+      protocol: tcp
+      published: 5500
+  nginx:
+    image: duopyapp-nginx:latest
+    build: ./duotask-nginx-container
+    ports:
+    - target: 80
+      published: 80
