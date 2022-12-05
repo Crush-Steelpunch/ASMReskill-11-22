@@ -10,8 +10,12 @@ services:  # what containers we need to run
     environment:
       YOUR_NAME: "Splat Punchloads"
   nginx:
-    image: duopyapp-nginx:latest
-    build: ./duotask-nginx-container
+    image: nginx:latest
+#    build: ./duotask-nginx-container
     ports:
     - target: 80
       published: 80
+    volumes: 
+      - type: bind
+        source: ./duotask-nginx-container/nginx.con
+        target: /etc/nginx/nginx.conf
