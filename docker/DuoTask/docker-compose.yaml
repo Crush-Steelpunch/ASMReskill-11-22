@@ -21,5 +21,5 @@ services:  # what containers we need to run
         target: /etc/nginx/
     depends_on:
       - "flask-app"
-volume:
+volumes:
   nginx-config:
