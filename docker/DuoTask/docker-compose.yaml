@@ -22,7 +22,19 @@ services:  # what containers we need to run
         target: /etc/nginx/
     depends_on:
       - "flask-app"
+  mysql:
+    image: mysql:latest
+    environment: 
+      MYSQL_ROOT_PASSWORD: "password123"
+    ports:
+    - target: 3306
+      published: 3306
+    volumes:
+      - type: volume
+        source: mysql-vol
+        target: /var/lib/mysql
 volumes:
   nginx-config:
+  mysql-vol:
 networks:
   duo-net:
