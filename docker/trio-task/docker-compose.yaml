@@ -1,7 +1,10 @@
 version: "3.8"
 services:
+  # all we need is to build a flask-app image and set the service name to match
+  # what is in the nginx.conf
     flask-app:
       build: flask-app
+  # we can use the upstream image and bindmount the config into it
     nginx:
       image: nginx:latest
       volumes:
@@ -11,6 +14,10 @@ services:
       ports:
               - target: 80
                 published: 80
+  # flask-app needs the service name to be mysql
+  # we need to set the password and database to match the DATABASE_URI in the app.py
+  # we need to add the sql file to the docker-entrypoint-initdb.d
+  # I've chosen to do this as a bind mount rather than build an image
     mysql:
       image: mysql:5.7
       environment:
