@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+    flask-app:
+      build: flask-app
+    nginx:
+      image: nginx:latest
+      volumes:
+        - type: bind
+          source: ./nginx/nginx.conf
+          target: /etc/nginx/nginx.conf
+      ports:
+              - target: 80
+                published: 80
+    mysql:
+      image: mysql:5.7
+      environment:
+              MYSQL_ROOT_PASSWORD: "[PASSWORD]"
+              MYSQL_DATABASE: "flask-db"
+      volumes:
+              - type: bind
+                source: ./db/CreateTable.sql
+                target: /docker-entrypoint-initdb.d/CreateTable.sql
+
