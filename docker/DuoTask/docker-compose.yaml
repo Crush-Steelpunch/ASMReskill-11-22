@@ -17,9 +17,9 @@ services:  # what containers we need to run
     - target: 80
       published: 80
     volumes: 
-      - type: volume
-        source: nginx-config
-        target: /etc/nginx/
+      - type: bind
+        source: ./duotask-nginx-container/nginx.conf
+        target: /etc/nginx/nginx.conf
     depends_on:
       - "flask-app"
   mysql:
