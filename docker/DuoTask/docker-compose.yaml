@@ -3,6 +3,7 @@ services:  # what containers we need to run
   flask-app:    # the name of the secion  
     image: duopyapp:latest
     build: ./duotask-pyapp
+    container_name: bob-the-container
     ports: 
     - target: 5500
       protocol: tcp
