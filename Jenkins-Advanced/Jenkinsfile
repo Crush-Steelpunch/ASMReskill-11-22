@@ -2,6 +2,7 @@ pipeline {
     agent any
     stages {
         stage('Build') {
+            agent { label 'agent1' }
             steps {
                 sh 'mkdir -p jenkinsdir1'
                 echo 'I like pies'
