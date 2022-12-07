@@ -1,5 +1,8 @@
 pipeline {
     agent any
+        environment {
+        DB_PASSWORD = 'spleleodot'
+    }
     stages {
         stage('Build') {
 //            agent { label 'agent1' }
