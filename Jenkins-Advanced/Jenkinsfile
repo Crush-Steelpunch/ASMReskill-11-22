@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mkdir -p jenkinsdir1'
+                echo 'I like pies'
+                writeFile encoding: 'UTF-8', file: 'cheese-is-a-type-of-meat', text: 'Put song lyrics here'
+
+            }
+        }
+        stage('Test') {
+            steps {
+                git 'https://gitlab.com/qacdevops/duo-task.git'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Nothing in here, move along'
+            }
+        }
+    }
+}
