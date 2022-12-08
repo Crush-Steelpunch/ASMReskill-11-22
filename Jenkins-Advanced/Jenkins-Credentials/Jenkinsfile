@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+        environment {
+        DB_PASSWORD = 'spleleodot'
+    }
+    stages {
+        stage('Build') {
+//            agent { label 'agent1' }
+            steps {
+                sh 'mkdir -p jenkinsdir1'
+                echo 'I like pies'
+                writeFile encoding: 'UTF-8', file: 'cheese-is-a-type-of-meat', text: 'Put song lyrics here'
+
+            }
+        }
+        stage('Test') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Crush-Steelpunch/ASMReskill-11-22.git'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                dir('docker/DuoTask/duotask-pyapp/') {
+                    withCredentials([usernamePassword(credentialsId: 'DOCKER_CREDS', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
+                        sh '''docker login -u $DOCKER_USER    -p $DOCKER_PASS
+                        docker build -t baggypants12000/duotask-ams:latest .
+                        docker push baggypants12000/duotask-ams:latest'''
+                    }
+                }
+            }
+        }
+    }
+}
