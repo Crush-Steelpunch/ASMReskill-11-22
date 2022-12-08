@@ -10,6 +10,7 @@ pipeline {
             }
         }
         stage('Install Docker') {
+            echo 'Nothing to Do'
             steps {
             }
         }
