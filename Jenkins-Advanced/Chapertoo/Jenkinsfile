@@ -10,10 +10,10 @@ pipeline {
             }
         }
         stage('Install Docker') {
-            echo 'Nothing to Do'
             //I'm skipping the deploy docker as I manuall installed it 
             //and it doesn't need to happen on ever build in my environment
             steps {
+            echo 'Nothing to Do'
             }
         }
         stage('Deploy') {
