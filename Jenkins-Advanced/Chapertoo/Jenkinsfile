@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+        environment {
+        DB_PASSWORD = 'spleleodot'
+    }
+    stages {
+        stage('Clone') {
+            steps {
+                git 'https://gitlab.com/qacdevops/chaperootodo_client.git'
+            }
+        }
+        stage('Install Docker') {
+            steps {
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh '''docker-compose pull
+                docker-compose up -d'''
+            }
+        }
+    }
+}
