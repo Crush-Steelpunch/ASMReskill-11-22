@@ -15,6 +15,7 @@ pipeline {
             steps {
             echo 'Nothing to Do'
             echo 'Insert the install steps here'
+            echo 'This should trigger an automated build'
             }
         }
         stage('Deploy') {
