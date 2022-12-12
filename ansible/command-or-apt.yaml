@@ -1,0 +1,10 @@
+- hosts: 127.0.0.1
+  become: true
+  tasks:
+  - name: remove with apt
+    apt:
+       name: ddate
+       state: absent
+       autoremove: yes
+  - name: remove with command
+    command: 'apt remove -y tree'
