@@ -1,6 +1,8 @@
 - hosts: 127.0.0.1
   become: true
   tasks:
+  - name: Run uname -q like an idiot
+    command: 'uname -q'
   - name: Install apache httpd  (state=present is optional)
     apt:
       name: apache2
@@ -21,3 +23,4 @@
     debug:
       msg: "The apache install step showed a change"
     when: apachevar1.changed
+  
