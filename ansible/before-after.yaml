@@ -9,4 +9,4 @@
   - name: show var contents
     debug:
       var: copyvar1
-    when: copyvar1.src == copyvar1.copyvar1
+#    when: copyvar1.src == copyvar1.copyvar1
