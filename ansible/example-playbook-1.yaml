@@ -19,5 +19,5 @@
       var: apachevar1.changed
   - name: debug message 3
     debug:
-      message: "The apache install step showed a change"
+      msg: "The apache install step showed a change"
     when: apachevar1.changed
