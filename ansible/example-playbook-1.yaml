@@ -8,5 +8,5 @@
   - name: Make sure a service unit is running
     systemd:
       state: started
-      name: httpd
+      name: apache2
       enabled: true
