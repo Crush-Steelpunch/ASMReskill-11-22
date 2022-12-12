@@ -1,12 +1,21 @@
 - hosts: 127.0.0.1
   become: true
   tasks:
+  - name: install nginx
+    apt:
+      name: nginx
+      state: present
+      update_cache: true
+    register: nginxwhatnowvar1
+  - name: nginx debug
+    debug:
+      var: nginxwhatnowvar1
   - name: copy a file
     copy: 
       dest: /etc/leon-robinson-delete-me-file
       src: myfile1
     register: copyvar1
-    failed_when: copyvar1.src == copyvar1.dest
+    failed_when: ( copyvar1.src == copyvar1.dest )
   - name: show var contents
     debug:
       var: copyvar1
