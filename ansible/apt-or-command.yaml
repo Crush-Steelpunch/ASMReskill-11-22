@@ -1,0 +1,11 @@
+- hosts: 127.0.0.1
+  become: true
+  tasks:
+    - name: install with apt
+      apt: 
+        name: tree
+        state: present
+    - name: install with command
+      command: 'apt install -y ddate'
+
+    
