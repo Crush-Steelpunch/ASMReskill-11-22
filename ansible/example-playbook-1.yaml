@@ -16,4 +16,4 @@
       msg: "This is a simple message for info"
   - name: debug message two
     debug:
-      var: apachevar1
+      var: apachevar1.changed
