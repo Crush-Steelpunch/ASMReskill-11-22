@@ -5,8 +5,15 @@
     apt:
       name: apache2
       state: present 
-  - name: Make sure a service unit is running
+    register: apachevar1
+  - name: Make sure a service unit is running and enabled
     systemd:
       state: started
       name: apache2
       enabled: true
+  - name: debug message one
+    debug:
+      msg: "This is a simple message for info"
+  - name: debug message two
+    debug:
+      var: apachevar1
