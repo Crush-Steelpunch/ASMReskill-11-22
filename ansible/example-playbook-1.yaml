@@ -4,6 +4,8 @@
   - name: Run uname -q like an idiot
     command: 'uname -a'
     ignore_errors: true
+  - name: make a directory
+    command: 'mkdir /leondir'
   - name: Install apache httpd  (state=present is optional)
     apt:
       name: apache2
