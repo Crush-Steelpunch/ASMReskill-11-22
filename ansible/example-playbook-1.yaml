@@ -1,0 +1,11 @@
+- hosts: 127.0.0.1
+  tasks:
+ - name: Install apache httpd  (state=present is optional)
+   apt:
+     name: apache2
+     state: present 
+  - name: Make sure a service unit is running
+    systemd:
+      state: started
+      name: httpd
+      enabled: true
