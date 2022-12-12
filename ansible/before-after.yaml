@@ -6,6 +6,7 @@
       dest: /etc/leon-robinson-delete-me-file
       src: myfile1
     register: copyvar1
+    when: copyvar1.src == copyvar1.copyvar1
   - name: show var contents
     debug:
       var: copyvar1
