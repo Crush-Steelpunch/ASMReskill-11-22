@@ -6,6 +6,8 @@
     ignore_errors: true
   - name: make a directory
     command: 'mkdir /leondir'
+    register: makeadirvar
+    failed_when: "makeadirvar.rc > 1"
   - name: Install apache httpd  (state=present is optional)
     apt:
       name: apache2
