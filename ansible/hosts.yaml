@@ -9,5 +9,5 @@ all:
         172.31.38.135:
     vms:
       children:
-      west:
-      east:
+        west:
+        east:
