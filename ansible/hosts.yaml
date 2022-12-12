@@ -1,13 +1,14 @@
 all:
-  hosts:
-  children:
+  hosts:     # This is for ungrouped machines
+  children:  # This means we want our machines in groups
     west:
-      hosts: 
+      hosts:  # this is for the hosts in our group
         172.31.47.18:
+          ansible_user: char
     east:
       hosts:
         172.31.38.135:
     vms:
-      children:
+      children: # this is for using our groups as subgroups 
         west:
         east:
