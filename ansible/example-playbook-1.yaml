@@ -1,4 +1,5 @@
 - hosts: 127.0.0.1
+  become: true
   tasks:
   - name: Install apache httpd  (state=present is optional)
     apt:
