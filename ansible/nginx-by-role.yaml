@@ -1,0 +1,6 @@
+- hosts: all
+  become: true
+  tasks:
+  - name: install nginx
+    ansible.builtin.include_role:
+      name: ansible-role-nginx
