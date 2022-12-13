@@ -3,7 +3,7 @@ http {
     server {
         listen 80;
         location / {
-            return 200 "This is {{ ansible_fqdn }}\n";
+            return 200 "This is {{ inventory_hostname }}\n";
         }
     }
 }
