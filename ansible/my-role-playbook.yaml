@@ -1,5 +1,5 @@
 - hosts: all
   become: true
   roles:
-  - roll: jam-roll
+  - jam-roll
     
