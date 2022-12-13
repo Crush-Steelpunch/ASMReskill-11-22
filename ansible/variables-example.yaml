@@ -1,0 +1,8 @@
+- hosts: vms
+  become: true
+  tasks:
+    - name: Add a user to machines
+      user:
+        name: waf
+        groups: sudo
+
