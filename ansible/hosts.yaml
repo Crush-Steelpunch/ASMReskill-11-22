@@ -8,9 +8,11 @@ all:
       hosts:  # this is for the hosts in our group
         172.31.47.18:
           ansible_user: char
+          this_host_id: "ansible-target-1"
     east:
       hosts:
         172.31.38.135:
+          this_host_id: "ansible-target-2"
     vms:
       children: # this is for using our groups as subgroups 
         west:
