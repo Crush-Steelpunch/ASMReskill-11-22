@@ -1,8 +1,10 @@
 - hosts: vms
   become: true
+  vars:
+    - user_name_var: bif
   tasks:
     - name: Add a user to machines
       user:
-        name: waf
+        name: "{{ user_name_var }}"
         groups: sudo
 
