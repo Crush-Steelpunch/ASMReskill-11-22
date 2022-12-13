@@ -14,9 +14,14 @@
       copy:
         src: example-nginx.conf
         dest: /etc/nginx/nginx.conf
+    - name: start and enable nginx
+      systemd:
+        name: nginx
+        state: reloaded
+        enabled: true
     - name: test the webservers
       uri:
-        url: localhost
+        url: "http://localhost"
         
     
 
