@@ -20,7 +20,7 @@
   tasks:
   - name: install packages  # task level
     apt:
-      name:  # module optios level
+      name:  # module options level
         - apache2  # list for an individual module option
         - mysql
         - tree
