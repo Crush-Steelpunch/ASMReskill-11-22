@@ -7,4 +7,6 @@
       user:
         name: "{{ user_name_var }}"
         groups: sudo
+      vars:
+        - user_name_var: jif
 
