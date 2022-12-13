@@ -1,0 +1,18 @@
+- playbook:  # This is global directives for the play
+  hosts:
+  become:
+  vars:
+    - var1
+  handlers:
+  tasks:
+  - task: # This is the indent for seperate tasks
+  - name:
+    vars:
+    when:
+    notify:
+    modulename:
+      moduleoptions: # this is the level for directives to do with a module
+      option: # this option will only be useful for a particualr module 
+      option: # check ansible doc for module options
+
+  
