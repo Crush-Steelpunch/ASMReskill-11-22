@@ -11,8 +11,8 @@
         state: started
         enabled: true
     - name: Copy the config file
-      copy:
-        src: example-nginx.conf
+      template:
+        src: example-nginx.j2
         dest: /etc/nginx/nginx.conf
       notify: "reload nginx"
     - name: test the webservers
