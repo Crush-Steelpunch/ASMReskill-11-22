@@ -19,10 +19,10 @@
       uri:
         url: "http://localhost"
         
-handlers:    
-- name: "reload nginx"
-  systemd:
-    name: nginx
-    state: reloaded
-    enabled: true
+  handlers:    
+  - name: "reload nginx"
+    systemd:
+      name: nginx
+      state: reloaded
+      enabled: true
 
