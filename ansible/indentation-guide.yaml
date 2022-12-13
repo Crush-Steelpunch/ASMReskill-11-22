@@ -15,4 +15,15 @@
       option: # this option will only be useful for a particualr module 
       option: # check ansible doc for module options
 
+---
+- hosts: # play level
+  tasks:
+  - name: install packages  # task level
+    apt:
+      name:  # module optios level
+        - apache2  # list for an individual module option
+        - mysql
+        - tree
+        - ddate
+      
   
