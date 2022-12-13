@@ -1,0 +1,20 @@
+---
+# tasks file for jam-roll
+
+- name: install nginx
+  apt:
+    name: nginx
+    state: present
+- name: start and enable nginx
+  systemd:
+    name: nginx
+    state: started
+    enabled: true
+- name: Copy the config file
+  template:
+    src: example-nginx.j2
+    dest: /etc/nginx/nginx.conf
+  notify: "reload nginx"
+- name: test the webservers
+  uri:
+    url: "http://localhost"
