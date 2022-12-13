@@ -14,14 +14,15 @@
       copy:
         src: example-nginx.conf
         dest: /etc/nginx/nginx.conf
-    - name: start and enable nginx
-      systemd:
-        name: nginx
-        state: reloaded
-        enabled: true
+      notify: "reload nginx"
     - name: test the webservers
       uri:
         url: "http://localhost"
         
-    
+handlers:    
+- name: "reload nginx"
+  systemd:
+    name: nginx
+    state: reloaded
+    enabled: true
 
