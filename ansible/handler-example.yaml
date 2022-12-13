@@ -1,0 +1,22 @@
+- hosts: vms
+  become: true
+  tasks:
+    - name: install nginx
+      apt:
+        name: nginx
+        state: present
+    - name: start and enable nginx
+      systemd:
+        name: nginx
+        state: started
+        enabled: true
+    - name: Copy the config file
+      copy:
+        src: example-nginx.conf
+        dest: /etc/nginx/nginx.conf
+    - name: test the webservers
+      uri:
+        url: localhost
+        
+    
+
