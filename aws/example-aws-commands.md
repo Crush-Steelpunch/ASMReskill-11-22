@@ -33,3 +33,7 @@ aws s3api get-bucket-policy --bucket s3://a3fcc7e7-378e-4ce2-9409-cc5d844db128-l
 ## Display VPC and CIDR only
 
 aws ec2 describe-vpcs --query "Vpcs[].[CidrBlockAssociationSet[].CidrBlock],Tags[?Key=='Name'].Value]" --output text
+
+## Create a subnet
+
+aws ec2 create-subnet --vpc-id vpc-00116c6f76c8935b1 --cidr-block 10.1.0.0/24 --availability-zone eu-west-2a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=cli-subnet-a}]'
