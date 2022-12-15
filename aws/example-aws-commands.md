@@ -19,3 +19,17 @@ aws ec2 create-key-pair --key-name cli-key
 ## Delete a keypair
 
 aws ec2 delete-key-pair --key-name cli-key
+
+## S3
+
+aws s3 cp  Jenkinsfile s3://a3fcc7e7-378e-4ce2-9409-cc5d844db128-clibucket
+aws s3api get-bucket-policy --bucket s3://a3fcc7e7-378e-4ce2-9409-cc5d844db128-leon
+
+## VPC
+
+ aws ec2 create-vpc --cidr-block 10.1.0.0/16 --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=cli-vpc}]'
+ output: cli-vpc vpc-00116c6f76c8935b1
+
+## Display VPC and CIDR only
+
+aws ec2 describe-vpcs --query "Vpcs[].[CidrBlockAssociationSet[].CidrBlock,VpcId]" --output text
