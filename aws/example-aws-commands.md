@@ -59,3 +59,31 @@ output: cli-internet-gateway igw-0958eff3610f121a1
 `aws ec2 describe-route-tables`
 
 `aws ec2 create-route  --destination-cidr-block 0.0.0.0/0 --route-table-id rtb-0d02b91a3fc9b9c91 --gateway-id igw-0958eff3610f121a1`
+
+## Security Groups
+
+### Create web group
+
+aws ec2 create-security-group --description "webseccli" --group-name "webseccli" --vpc-id vpc-00116c6f76c8935b1 
+
+### Create Web Group Rules
+
+aws ec2 authorize-security-group-ingress --group-id sg-02d5e868b37052b93 --port 80 --protocol tcp --cidr 0.0.0.0/0 
+aws ec2 authorize-security-group-ingress --group-id sg-02d5e868b37052b93 --port 22 --protocol tcp --cidr 0.0.0.0/0 
+
+### Create db group
+
+aws ec2 create-security-group --description "dbseccli" --group-name "dbseccli" --vpc-id vpc-00116c6f76c8935b1 
+
+### Create db Group Rules
+
+aws ec2 authorize-security-group-ingress --group-id sg-0383fb9dfacfa147b --port 22 --protocol tcp --cidr 0.0.0.0/0 
+aws ec2 authorize-security-group-ingress --group-id sg-0383fb9dfacfa147b --port 22 --protocol tcp --source-group webseccli
+
+### Run an instance with the new web group
+
+aws ec2 run-instances --image-id ami-0beb6fc68811e5682  --instance-type t2.small --key-name AMSkey --subnet-id  subnet-0ad52e1f0be31c684  --associate-public-ip-address --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=InstanceName}]' --security-group-ids sg-02d5e868b37052b93
+
+### Modify security groups on a running instance
+
+`aws ec2 modify-instance-attribute --groups <group-ids> --instance-id <instance-id>`
