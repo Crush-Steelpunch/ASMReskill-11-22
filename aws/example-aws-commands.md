@@ -37,3 +37,17 @@ aws ec2 describe-vpcs --query "Vpcs[].[CidrBlockAssociationSet[].CidrBlock],Tags
 ## Create a subnet
 
 aws ec2 create-subnet --vpc-id vpc-00116c6f76c8935b1 --cidr-block 10.1.0.0/24 --availability-zone eu-west-2a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=cli-subnet-a}]'
+
+## Internet gateway
+
+aws ec2 create-internet-gateway --tag-specifications 'ResourceType=internet-gateway,Tags=[{Key=Name,Value=cli-internet-gateway}]'
+
+output: cli-internet-gateway igw-0958eff3610f121a1
+
+## Attach an internet gateway to a vpc
+
+aws ec2 attach-internet-gateway --vpc-id vpc-00116c6f76c8935b1  --internet-gateway-id igw-0958eff3610f121a1  --region eu-west-2
+
+## Describe internet Gateways
+
+aws ec2 describe-internet-gateways 
