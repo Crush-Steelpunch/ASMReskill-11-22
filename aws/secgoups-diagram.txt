@@ -1,0 +1,40 @@
+i                                                   web-server-secgroup         ftp-sec-group
+                                                         Web2                     ftp                                    
+                                                        10.0.0.6               10.0.0.20                                 
+                                                                                                                         
+                                                          |                       |                                      
+          Internet                 VPC 10.0.0.0/24        |                       |                                      
+             ----------------------|----------------------------------------------------------------------               
+                                                 |            |                                                          
+                                                 |            |                                                          
+                                                 |            |                                                          
+                                                                                                                         
+                                              Web           Database                                                     
+                                             10.0.0.5       10.0.0.10                                                    
+                                                                                                                         
+                                      web-server-secgroup   database-secgroup-webvpc
+                                                                                                                         
+                                                                                                                         
+ yy                                                                                                                      
+                                                                                                                         
+                                                                                                                         
+           web-server-secgroup
+			allow from 0.0.0.0/0   to port 80/tcp
+			allow from 0.0.0.0/0   to port 22/tcp
+           ftp-sec-gtoup
+			allow from 0.0.0.0/0   to port 20-21/tcp
+			allow from 0.0.0.0/0   to port 22/tcp
+                                                                                                                         
+           database-secgroup-webvpc
+			allow from web-server-secgroup to port 3306/tcp
+			allow from 0.0.0.0/0           to port 22/tcp
+                                                                                                                         
+                                                                                                                         
+                                                                                                                         
+                                                                                                                         
+                                                                                                                         
+                                                                                                                         
+                                                                                                                         
+                                                                                                                         
+                                                                                                                         
+                                                                                                                         
