@@ -4,8 +4,7 @@
 
 `aws ec2 run-instances --image-id ami-0beb6fc68811e5682  --instance-type t2.small --key-name AMSkey --subnet-id subnet-0a9f06e2e3deb6551 --associate-public-ip-address --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=InstanceName}]'`
 
-## Filter by instance id and show only the public ip
-
+## Filter and query example
 `aws ec2 describe-instances --filter 'Name=instance-id,Values=i-09214b775c7a27c49' --query Reservations[].Instances[].PublicIpAddress --output text`
 
 ## Terminate an instance
