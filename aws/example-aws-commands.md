@@ -64,26 +64,30 @@ output: cli-internet-gateway igw-0958eff3610f121a1
 
 ### Create web group
 
-aws ec2 create-security-group --description "webseccli" --group-name "webseccli" --vpc-id vpc-00116c6f76c8935b1 
+`aws ec2 create-security-group --description "webseccli" --group-name "webseccli" --vpc-id vpc-00116c6f76c8935b1`
 
 ### Create Web Group Rules
 
-aws ec2 authorize-security-group-ingress --group-id sg-02d5e868b37052b93 --port 80 --protocol tcp --cidr 0.0.0.0/0 
-aws ec2 authorize-security-group-ingress --group-id sg-02d5e868b37052b93 --port 22 --protocol tcp --cidr 0.0.0.0/0 
+`aws ec2 authorize-security-group-ingress --group-id sg-02d5e868b37052b93 --port 80 --protocol tcp --cidr 0.0.0.0/0`
+`aws ec2 authorize-security-group-ingress --group-id sg-02d5e868b37052b93 --port 22 --protocol tcp --cidr 0.0.0.0/0`
 
 ### Create db group
 
-aws ec2 create-security-group --description "dbseccli" --group-name "dbseccli" --vpc-id vpc-00116c6f76c8935b1 
+`aws ec2 create-security-group --description "dbseccli" --group-name "dbseccli" --vpc-id vpc-00116c6f76c8935b1`
 
 ### Create db Group Rules
 
-aws ec2 authorize-security-group-ingress --group-id sg-0383fb9dfacfa147b --port 22 --protocol tcp --cidr 0.0.0.0/0 
-aws ec2 authorize-security-group-ingress --group-id sg-0383fb9dfacfa147b --port 22 --protocol tcp --source-group webseccli
-
-### Run an instance with the new web group
-
-aws ec2 run-instances --image-id ami-0beb6fc68811e5682  --instance-type t2.small --key-name AMSkey --subnet-id  subnet-0ad52e1f0be31c684  --associate-public-ip-address --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=InstanceName}]' --security-group-ids sg-02d5e868b37052b93
+`aws ec2 authorize-security-group-ingress --group-id sg-0383fb9dfacfa147b --port 22 --protocol tcp --cidr 0.0.0.0/0`
+`aws ec2 authorize-security-group-ingress --group-id sg-0383fb9dfacfa147b --port 22 --protocol tcp --source-group webseccli`
 
 ### Modify security groups on a running instance
 
 `aws ec2 modify-instance-attribute --groups <group-ids> --instance-id <instance-id>`
+
+## RDS
+
+`aws rds create-db-instance --db-instance-identifier database-cli --allocated-storage 20  --db-instance-class db.t3.micro --engine mysql --master-username admin --master-user-password password123`
+
+`aws rds describe-db-instances --db-instance-identifier  database-cli`
+
+`aws rds delete-db-instance --db-instance-identifier data`
