@@ -1,0 +1,31 @@
+                                                                                                          
+                                                            +-------- same-availability-zone              
+                                                            |                            |                
+                                                           \|/                          \|/               
+                            VPC     Internet-gateway    subnet1        NAT gateway    subnet4    instance1   instance2             
+       Internet ------------|-------|--------------+----|--------------|--------------|----------|-----------|                
+                            |                      |                                                      
+                            |                      |    subnet2                                           
+                            |                      +----|                                                 
+                            |                                                                             
+                            |                                                                             
+                            +- Network Access Control List                                                
+                                                                                                          
+                                                                                                          
+                                                                                                          
+                                                                                                          
+                                                                                                          
+                                                                                                          
+                                                                                                          
+                                                                                                          
+                                                                                                          
+                                                                                                          
+                                                                                                          
+                                                                                                          
+                                                                                                          
+                                                                                                          
+                                                                                                          
+                                                                                                          
+                                                                                                          
+                                                                                                          
+                                                                                                        | 
