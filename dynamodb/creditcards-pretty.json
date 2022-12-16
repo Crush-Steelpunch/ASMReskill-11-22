@@ -1,0 +1,23 @@
+[
+  {
+    "id": {"N": "267"},
+    "uid": {"N": "9cdaeea9-d65d-4f5c-8616-aa7dfc89d7fa"},
+    "credit_card_number": {"S": "1212-1221-1121-1234"},
+    "credit_card_expiry_date": {"S": "2025-12-15"},
+    "credit_card_type": {"S": "switch"}
+  },
+  {
+    "id": {"N": "3747"},
+    "uid": {"S": "5674defc-9c78-4ee5-8d71-44987b47c4a9"},
+    "credit_card_number": {"S": "1234-2121-1221-1211"},
+    "credit_card_expiry_date": {"S": "2024-12-15"},
+    "credit_card_type": {"S": "visa"}
+  },
+  {
+    "id": {"N": "462"},
+    "uid": {"S": "de84eb54-d327-49b8-a122-a7c1d8edb73b"},
+    "credit_card_number": {"S": "1212-1221-1121-1234"},
+    "credit_card_expiry_date": {"S": "2026-12-15"},
+    "credit_card_type": {"S": "forbrugsforeningen"}
+  }
+]
